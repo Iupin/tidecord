@@ -9,7 +9,14 @@ const gotLock = app.requestSingleInstanceLock();
 if (!gotLock) app.quit();
 
 app.whenReady().then(async () => {
-  tray = new Tray(path.join(__dirname, "../icon.ico"));
+
+  const iconPath = app.isPackaged
+    ? path.join(process.resourcesPath, "icon.ico") // after packaging
+    : path.join(__dirname, "../icon.ico");       // dev
+
+  console.log("Tray icon path:", iconPath)
+
+  tray = new Tray(iconPath)
 
   const contextMenu = Menu.buildFromTemplate([
     { label: "Tidecord Running", enabled: false },
@@ -35,5 +42,9 @@ app.whenReady().then(async () => {
     const song = getCurrentSong();
     if (!song) return clearPresence();
     updatePresence(song);
-  }, 3000);
+  }, 5000);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled Promise Rejection:", reason);
 });

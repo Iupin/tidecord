@@ -1,4 +1,5 @@
 /node_modules
-/MediaBridge
+/bridge
 package-lock.json
 /.vscode
+/dist

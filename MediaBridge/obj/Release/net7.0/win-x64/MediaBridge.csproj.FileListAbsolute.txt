@@ -1,4 +1,0 @@
-C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0\win-x64\MediaBridge.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0\win-x64\MediaBridge.AssemblyInfoInputs.cache
-C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0\win-x64\MediaBridge.AssemblyInfo.cs
-C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0\win-x64\MediaBridge.csproj.CoreCompileInputs.cache

@@ -1,13 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "UNMGPIK7DPbrLAxTG9LumJODq2/Y0PyxTvmnQ5pV0RR25xJbPo8aj6zm63oI1dIb6lLBn1Jy3/muv6eTEcUqYA==",
+  "dgSpecHash": "OUiHhxwDazxlyEyezofl35oTn2Tv70darSMm5TfXthXeZNLB+oVUKelLd+PXwE5/zqvwRQa7xbCLlD38LqQ4Fg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matthew\\Documents\\Projects\\tidecord\\MediaBridge\\MediaBridge.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.10\\microsoft.netcore.app.runtime.win-x64.7.0.10.nupkg.sha512",
-    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.10\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.10.nupkg.sha512",
-    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.10\\microsoft.aspnetcore.app.runtime.win-x64.7.0.10.nupkg.sha512",
-    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.29\\microsoft.windows.sdk.net.ref.10.0.19041.29.nupkg.sha512"
+    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
