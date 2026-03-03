@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "UNMGPIK7DPbrLAxTG9LumJODq2/Y0PyxTvmnQ5pV0RR25xJbPo8aj6zm63oI1dIb6lLBn1Jy3/muv6eTEcUqYA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Matthew\\Documents\\Projects\\tidecord\\MediaBridge\\MediaBridge.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.10\\microsoft.netcore.app.runtime.win-x64.7.0.10.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.10\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.10.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.10\\microsoft.aspnetcore.app.runtime.win-x64.7.0.10.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.29\\microsoft.windows.sdk.net.ref.10.0.19041.29.nupkg.sha512"
+  ],
+  "logs": []
+}

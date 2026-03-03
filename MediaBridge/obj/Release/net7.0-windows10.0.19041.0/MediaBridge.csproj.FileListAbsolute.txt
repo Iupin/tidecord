@@ -1,0 +1,17 @@
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\MediaBridge.exe
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\MediaBridge.deps.json
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\MediaBridge.runtimeconfig.json
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\MediaBridge.dll
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\MediaBridge.pdb
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\Microsoft.Windows.SDK.NET.dll
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\bin\Release\net7.0-windows10.0.19041.0\WinRT.Runtime.dll
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.AssemblyInfoInputs.cache
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.AssemblyInfo.cs
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.csproj.CoreCompileInputs.cache
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.csproj.CopyComplete
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.dll
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\refint\MediaBridge.dll
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.pdb
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\MediaBridge.genruntimeconfig.cache
+C:\Users\Matthew\Documents\Projects\tidecord\MediaBridge\obj\Release\net7.0-windows10.0.19041.0\ref\MediaBridge.dll
