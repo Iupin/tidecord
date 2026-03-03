@@ -1,0 +1,39 @@
+{
+  "name": "tidecord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iupin/tidecord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iupin/tidecord/issues"
+  },
+  "homepage": "https://github.com/Iupin/tidecord#readme",
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "electron": "^40.6.1"
+  },
+  "build": {
+    "appId": "com.tidecord.app",
+    "win": {
+      "target": "nsis"
+    },
+    "extraResources": [
+      {
+        "from": "bridge/MediaBridge.exe",
+        "to": "MediaBridge.exe"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron-builder": "^26.8.1"
+  }
+}
