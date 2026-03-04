@@ -20,8 +20,6 @@ export function startBridge(): void {
     ? path.join(process.resourcesPath, "bridge", "MediaBridge.exe")
     : path.resolve(__dirname, "../bridge/MediaBridge.exe");
 
-  console.log("Bridge path:", bridgePath);
-
   if (!fs.existsSync(bridgePath)) {
     console.error("Bridge exe not found!");
     process.exit(1);

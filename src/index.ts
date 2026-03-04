@@ -14,8 +14,6 @@ app.whenReady().then(async () => {
     ? path.join(process.resourcesPath, "icon.ico") // after packaging
     : path.join(__dirname, "../icon.ico");       // dev
 
-  console.log("Tray icon path:", iconPath)
-
   tray = new Tray(iconPath)
 
   const contextMenu = Menu.buildFromTemplate([
