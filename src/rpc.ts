@@ -40,6 +40,8 @@ export async function updatePresence(song: Song): Promise<void> {
       state: "Idle",
       largeImageKey: "tidal",
       largeImageText: "TIDAL",
+      type: ActivityType.Playing,
+      statusDisplayType: StatusDisplayType.NAME
     });
     return;
   }
