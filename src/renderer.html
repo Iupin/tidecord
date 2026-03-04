@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Tidecord</title>
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: "transparent";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.card {
+  width: 460px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-app-region: drag;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+  -webkit-app-region: no-drag;
+  text-align: center;
+}
+
+.artist {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 25px;
+  color: #cccccc;
+  -webkit-app-region: no-drag;
+  text-align: center;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  color: #bbbbbb;
+  -webkit-app-region: no-drag;
+}
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-app-region: no-drag;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: none;
+  border-radius: 10px;
+}
+
+.rpc-toggle {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.rpc-toggle label {
+  margin-left: 8px;
+  color: #ccc;
+  user-select: none;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="close-btn" id="closeBtn">✕</div>
+  <div class="title">No song playing</div>
+  <div class="artist"></div>
+
+  <div class="time-row">
+    <span id="current">0:00</span>
+    <span id="total">0:00</span>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+
+   <div class="rpc-toggle">
+    <input type="checkbox" id="rpcCheckbox" checked />
+    <label for="rpcCheckbox">Send Discord RPC</label>
+  </div>
+
+</div>
+
+<script>
+
+const closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  window.api.hideWindow(); 
+});
+
+const rpcCheckbox = document.getElementById("rpcCheckbox");
+rpcCheckbox.checked = localStorage.getItem("sendRPC") !== "false";
+sendRPC = rpcCheckbox.checked;
+
+rpcCheckbox.addEventListener("change", () => {
+  sendRPC = rpcCheckbox.checked;
+  localStorage.setItem("sendRPC", sendRPC);
+  window.api.setSendRPC(sendRPC);
+});
+
+
+let currentTrackId = null;
+let duration = 0;
+let lastPosition = 0;
+let lastUpdateTimestamp = 0;
+let animationFrame = null;
+
+function formatTime(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
+function animate() {
+  if (!currentTrackId) return;
+
+  const now = Date.now();
+  const elapsed = now - lastUpdateTimestamp;
+  const position = Math.min(lastPosition + elapsed, duration);
+
+  const percent = duration ? (position / duration) * 100 : 0;
+
+  document.querySelector(".progress-bar").style.width = percent + "%";
+  document.getElementById("current").textContent = formatTime(position);
+
+  animationFrame = requestAnimationFrame(animate);
+}
+
+window.api.onSongUpdate((song) => {
+  const title = document.querySelector(".title");
+  const artist = document.querySelector(".artist");
+  const total = document.getElementById("total");
+
+  if (song.title === "TIDAL") {
+    currentTrackId = null;
+    duration = 0;
+    lastPosition = 0;
+    lastUpdateTimestamp = 0;
+
+    cancelAnimationFrame(animationFrame);
+
+    title.textContent = "No song playing";
+    artist.textContent = "";
+    total.textContent = "0:00";
+    document.getElementById("current").textContent = "0:00";
+    document.querySelector(".progress-bar").style.width = "0%";
+    return;
+  }
+
+  const trackId = song.title + song.artist + song.duration;
+
+  // Reset animation if the track changed
+  if (trackId !== currentTrackId) {
+    currentTrackId = trackId;
+    duration = song.duration;
+    lastPosition = song.position;
+    lastUpdateTimestamp = Date.now();
+
+    title.textContent = song.title;
+    artist.textContent = "by " + song.artist;
+    total.textContent = formatTime(duration);
+
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(animate);
+    return;
+  }
+
+  // If same track, update snapshot
+  lastPosition = song.position;
+  lastUpdateTimestamp = Date.now();
+});
+</script>
+</body>
+</html>

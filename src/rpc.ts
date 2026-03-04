@@ -1,8 +1,11 @@
 import { Client, StatusDisplayType } from "@xhayper/discord-rpc";
 import { ActivityType } from "discord-api-types/v10";
 import { Song } from "./media";
+import { ipcMain } from "electron";
 
 const CLIENT_ID = "1478438671689449694";
+let sendRPC = true
+
 
 export const rpc = new Client({ clientId: CLIENT_ID });
 rpc.on("ready", () => console.log("RPC ready"));
@@ -15,6 +18,14 @@ rpc.on("disconnected", async () => {
   }
 });
 rpc.on("error", (e) => console.error("RPC error:", e));
+
+ipcMain.on("set-send-rpc", async (event, enabled: boolean) => {
+  sendRPC = enabled;
+  if(!sendRPC) {
+    if(!rpc.user) return
+    await rpc.user.clearActivity()
+  } 
+});
 
 export async function initRPC(): Promise<void> {
   await rpc.login();
@@ -30,6 +41,7 @@ export async function clearPresence(): Promise<void> {
 }
 
 export async function updatePresence(song: Song): Promise<void> {
+  if(!sendRPC) return
   console.log("Updating presence")
   const now = Date.now();
   const start = now - song.position;
