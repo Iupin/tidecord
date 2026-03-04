@@ -3,3 +3,6 @@
 package-lock.json
 /.vscode
 /dist
+/MediaBridge/.vs
+/MediaBridge/obj
+/MediaBridge/bin
