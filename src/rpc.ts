@@ -6,7 +6,14 @@ const CLIENT_ID = "1478438671689449694";
 
 export const rpc = new Client({ clientId: CLIENT_ID });
 rpc.on("ready", () => console.log("RPC ready"));
-rpc.on("disconnected", () => console.log("RPC disconnected"));
+rpc.on("disconnected", async () => {
+  console.log("RPC disconnected. Reconnecting...");
+  try {
+    await rpc.login();
+  } catch (err) {
+    console.error("Reconnect failed:", err);
+  }
+});
 rpc.on("error", (e) => console.error("RPC error:", e));
 
 export async function initRPC(): Promise<void> {
