@@ -11,7 +11,7 @@ class Program
     {
         AutomationElement tidalWindow = null;
 
-        Console.Error.WriteLine("Waiting for TIDAL to start...");
+        //Console.Error.WriteLine("Waiting for TIDAL to start...");
 
         // Wait for TIDAL main window
         while (tidalWindow == null)
@@ -27,7 +27,7 @@ class Program
             await Task.Delay(1000);
         }
 
-        Console.Error.WriteLine($"Found TIDAL window: {tidalWindow.Current.Name}");
+        //Console.Error.WriteLine($"Found TIDAL window: {tidalWindow.Current.Name}");
 
         var timeRegex = new Regex(@"^\d{1,2}:\d{2}(:\d{2})?$");
 
@@ -43,6 +43,7 @@ class Program
             {
                 // --- Log all children for debugging ---
                 var children = tidalWindow.FindAll(TreeScope.Children, Condition.TrueCondition);
+                /*
                 Console.Error.WriteLine($"--- TIDAL Children ({children.Count}) ---");
                 foreach (AutomationElement child in children)
                 {
@@ -50,6 +51,7 @@ class Program
                         $"Child: Name='{child.Current.Name}', AutomationId='{child.Current.AutomationId}', Class='{child.Current.ClassName}', ControlType='{child.Current.ControlType.ProgrammaticName}'"
                     );
                 }
+                */
 
                 // --- Find current song container ---
                 AutomationElement currentSongEl = null;
@@ -64,7 +66,7 @@ class Program
 
                 if (currentSongEl != null)
                 {
-                    Console.Error.WriteLine($"Found current song container: {currentSongEl.Current.Name}");
+                    //Console.Error.WriteLine($"Found current song container: {currentSongEl.Current.Name}");
 
                     // --- Title & Artist from RootView Name ---
                     string fullName = currentSongEl.Current.Name.Trim(); // e.g., "Gotham Love - BAKGROUND"
